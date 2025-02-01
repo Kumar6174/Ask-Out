@@ -89,7 +89,23 @@
       valentineQuestion.textContent = "Yayyy!! :3"; // Change the question text
       responseButtons.style.display = 'none'; // Hide both buttons
       confetti(); // Trigger confetti animation
+
+
+        // Send email using FormSubmit
+      fetch("https://formsubmit.co/ajax/mrbadshah768@gmail.com", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+              subject: "Valentine's Day Acceptance ❤️",
+              message: "Your Someone said YES to your Valentine proposal! 🎉🥰"
+          })
+      })
+      .then(response => response.json())
+      .then(data => console.log("Email Sent Successfully!", data))
+      .catch(error => console.error("Error sending email", error));
     });
+
+   
   </script>  
 </body>
 </html>
